@@ -15,7 +15,6 @@ public class LinkManager : MonoBehaviour
 
     private void Awake()
     {
-        Debug.Log(IntPtr.Size);
         nearestNodesList = new List<Tuple<Node, Node, int>>();
         int ID = 0;
         foreach (var link in linksList)

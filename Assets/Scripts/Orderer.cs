@@ -78,22 +78,10 @@ public class Orderer : Node
         shipper = null;
         switch (foodType)
         {
-            case Food.Pizza:
-                Debug.Log("Pizza");
-                foodInfo = "Pizza"; break;
-            case Food.BanhMi:
-                Debug.Log("Banh Mi");
-                foodInfo = "Banh Mi"; break;
+            case Food.Pizza: foodInfo = "Pizza"; break;
+            case Food.BanhMi: foodInfo = "Banh Mi"; break;
                 //default: break;
         }
-        //if (foodType == Food.Pizza)
-        //{
-        //    foodInfo = "Pizza";
-        //}
-        //else
-        //{
-        //    foodInfo = "Banh Mi";
-        //}
     }
 }
 public enum Food
