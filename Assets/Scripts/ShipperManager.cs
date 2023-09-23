@@ -18,6 +18,14 @@ public class ShipperManager : MonoBehaviour
         RaycastHit hitData;
         if (Physics.Raycast(ray, out hitData) && Input.GetKey(KeyCode.Mouse0))
         {
+            if (!hitData.collider.CompareTag("Shipper") && !hitData.collider.CompareTag("Orderer"))
+            {
+                if (selectedShipper != null)
+                {
+                    selectedShipper.GetComponent<Renderer>().material = unselectedMaterial;
+                    selectedShipper = null;
+                }
+            }
             if (hitData.collider.CompareTag("Shipper"))
             {
                 if (selectedShipper != null)
