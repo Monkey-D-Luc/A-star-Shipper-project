@@ -21,11 +21,14 @@ public static class Astar
             closeList.Add(currentNode);
             if (currentNode == endPoint)
             {
+                //maxLoop de tranh vong lap vo han 
+                int maxLoop = 20;
                 do
                 {
                     path.Push(currentNode);
                     currentNode = currentNode.previousNode;
-                } while (currentNode != startPoint);
+                    maxLoop--;
+                } while (currentNode != startPoint && maxLoop > 0);
                 path.Push(startPoint);
                 return path;
             }

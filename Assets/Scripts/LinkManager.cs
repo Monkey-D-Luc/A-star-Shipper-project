@@ -26,7 +26,7 @@ public class LinkManager : MonoBehaviour
         }
 
         Stack<Node> path = new Stack<Node>();
-        path = Astar.FindPath(startPoint, endPoint);
+        //path = Astar.FindPath(startPoint, endPoint);
         //while (path.Count > 0)
         //{
         //    Node node = path.Pop();
