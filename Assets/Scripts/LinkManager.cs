@@ -27,15 +27,15 @@ public class LinkManager : MonoBehaviour
 
         Stack<Node> path = new Stack<Node>();
         path = Astar.FindPath(startPoint, endPoint);
-        while (path.Count > 0)
-        {
-            Node node = path.Pop();
-            var nodePos = GameObject.CreatePrimitive(PrimitiveType.Sphere);
-            nodePos.transform.position = node.transform.position;
-            var renderer = nodePos.GetComponent<Renderer>();
-            renderer.material.SetColor("_Color", Color.red);
-            nodePos.transform.localScale = new Vector3(7, 7, 7);
-        }
+        //while (path.Count > 0)
+        //{
+        //    Node node = path.Pop();
+        //    var nodePos = GameObject.CreatePrimitive(PrimitiveType.Sphere);
+        //    nodePos.transform.position = node.transform.position;
+        //    var renderer = nodePos.GetComponent<Renderer>();
+        //    renderer.material.SetColor("_Color", Color.red);
+        //    nodePos.transform.localScale = new Vector3(7, 7, 7);
+        //}
     }
 
     private void BuildRoads(Node nodeA, Node nodeB,int ID)

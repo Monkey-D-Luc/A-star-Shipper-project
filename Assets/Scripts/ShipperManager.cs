@@ -51,7 +51,7 @@ public class ShipperManager : MonoBehaviour
                     //Debug.Log(storeNode);
                     //Debug.Log(orderer.nearestNode);
                     orderer.shipper = shipper.gameObject;
-                    shipper.FindPath(startNode, storeNode, orderer.nearestNode);
+                    shipper.FindPath(startNode, storeNode, orderer.nearestNode, orderer);
                     selectedOrderer = null;
                     selectedShipper = null;
                     Debug.Log("Call");

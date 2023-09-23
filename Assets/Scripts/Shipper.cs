@@ -16,6 +16,7 @@ public class Shipper : MonoBehaviour
     public float speed;
     public int invoiceCode;
     public bool isTakenFood;
+    public Node orderPosition;
 
     private void Awake()
     {
@@ -32,12 +33,26 @@ public class Shipper : MonoBehaviour
         if (path.Count > 0 && Vector3.Distance(transform.position, targetPoint.transform.position) <= 2)
         {
             targetPoint = path.Pop();
-            if (path.Count == 0 && secondPath != null)
+            if (targetPoint == orderPosition)
+                return;
+            if (path.Count == 0)
             {
-                path = secondPath;
-                isTakenFood = true;
+                if (secondPath.Count > 0)
+                {
+                    path = secondPath;
+                    isTakenFood = true;
+                }
+                else
+                {
+                    path.Push(orderPosition);
+                }
             }
         }
+        //if (path.Count == 0 && Vector3.Distance(transform.position, targetPoint.transform.position) <= 2)
+        //{
+        //    //targetPoint = new Node();
+        //    targetPoint = orderPosition;
+        //}
         Vector3 direction = (targetPoint.transform.position - transform.position).normalized;
         transform.LookAt(targetPoint.transform);
         transform.position += direction * Time.deltaTime * speed;
@@ -62,11 +77,12 @@ public class Shipper : MonoBehaviour
         targetPoint = path.Pop();
     }
 
-    public void FindPath(Node startNode, Node storeNode , Node endNode)
+    public void FindPath(Node startNode, Node storeNode , Node endNode, Node orderPosition)
     {
         path = Astar.FindPath(startNode, storeNode);
         targetPoint = path.Pop();
         secondPath = Astar.FindPath(storeNode, endNode);
+        this.orderPosition = orderPosition;
     }
 
     public Node FindNearestNode(Vector3 position)
