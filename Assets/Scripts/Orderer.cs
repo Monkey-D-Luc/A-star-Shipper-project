@@ -20,6 +20,13 @@ public class Orderer : Node
         counter -= Time.deltaTime;
         if (counter <= 0)
         {
+            if (this.shipper!= null)
+            {
+                var shipper = this.shipper.GetComponent<Shipper>();
+                shipper.isTakenFood = false;
+                shipper.orderPosition = null;
+                shipper.path.Clear();
+            }
             gameObject.SetActive(false);
         }
     }
