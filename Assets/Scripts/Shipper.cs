@@ -20,6 +20,7 @@ public class Shipper : MonoBehaviour
 
     private void Awake()
     {
+        path = new Stack<Node>();
         nodesList = FindObjectsOfType<Node>();
         targetPoint = null;
         speed = 30;

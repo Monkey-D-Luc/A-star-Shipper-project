@@ -1,19 +1,28 @@
 using System.Collections;
 using System.Collections.Generic;
+using TMPro;
 using UnityEngine;
 
 public class Orderer : Node
 {
     private float counter;
+    private TextMeshProUGUI infoText;
+    public string foodInfo;
     public Food foodType;
     public Node nearestNode;
     public GameObject shipper;
     public int egdeID;
     public int invoiceCode;
+
+    private void Awake()
+    {
+        infoText = GetComponentInChildren<TextMeshProUGUI>();
+    }
     private void Start()
     {
         counter = 20;
         shipper = null;
+        //foodInfo = "Pizza";
     }
     private void Update()
     {
@@ -29,6 +38,10 @@ public class Orderer : Node
             }
             gameObject.SetActive(false);
         }
+        int timeRemain = (int)counter;
+        //infoText.SetText(foodInfo);
+        infoText.SetText(foodInfo + " - " + timeRemain.ToString());
+        Debug.Log(foodInfo);
     }
 
     private void OnTriggerEnter(Collider other)
@@ -63,6 +76,24 @@ public class Orderer : Node
         foodType = (Food)Random.Range(0, 2);
         counter = 20;
         shipper = null;
+        switch (foodType)
+        {
+            case Food.Pizza:
+                Debug.Log("Pizza");
+                foodInfo = "Pizza"; break;
+            case Food.BanhMi:
+                Debug.Log("Banh Mi");
+                foodInfo = "Banh Mi"; break;
+                //default: break;
+        }
+        //if (foodType == Food.Pizza)
+        //{
+        //    foodInfo = "Pizza";
+        //}
+        //else
+        //{
+        //    foodInfo = "Banh Mi";
+        //}
     }
 }
 public enum Food

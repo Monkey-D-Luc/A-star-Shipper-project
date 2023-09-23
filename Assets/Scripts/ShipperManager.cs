@@ -28,6 +28,8 @@ public class ShipperManager : MonoBehaviour
             }
             if (hitData.collider.CompareTag("Shipper"))
             {
+                if (hitData.transform.GetComponent<Shipper>().path.Count > 0)
+                    return;
                 if (selectedShipper != null)
                 {
                     selectedShipper.GetComponent<Renderer>().material = unselectedMaterial;
@@ -39,6 +41,7 @@ public class ShipperManager : MonoBehaviour
             {
                 if (selectedShipper != null)
                 {
+                    selectedShipper.GetComponent<Renderer>().material = unselectedMaterial;
                     selectedOrderer = hitData.transform;
                     var shipper = selectedShipper.GetComponent<Shipper>();
                     var orderer = selectedOrderer.GetComponent<Orderer>();
