@@ -34,6 +34,7 @@ public class Orderer : Node
             shipper.isTakenFood = false;
             shipper.orderPosition = null;
             shipper.targetPoint = nearestNode;
+            shipper.path.Clear();
             gameObject.SetActive(false);
         }
     }

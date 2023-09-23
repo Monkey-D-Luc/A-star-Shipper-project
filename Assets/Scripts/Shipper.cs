@@ -44,6 +44,7 @@ public class Shipper : MonoBehaviour
                 }
                 else
                 {
+                    Debug.Log("push thanh cong");
                     path.Push(orderPosition);
                 }
             }
