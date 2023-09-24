@@ -29,7 +29,7 @@ public class Orderer : Node
         counter -= Time.deltaTime;
         if (counter <= 0)
         {
-            if (this.shipper!= null)
+            if (this.shipper != null)
             {
                 var shipper = this.shipper.GetComponent<Shipper>();
                 shipper.isTakenFood = false;
@@ -38,6 +38,11 @@ public class Orderer : Node
             }
             gameObject.SetActive(false);
         }
+        DisplayInfo();
+    }
+
+    private void DisplayInfo()
+    {
         int timeRemain = (int)counter;
         infoText.SetText(foodInfo + " - " + timeRemain.ToString());
     }
@@ -56,18 +61,6 @@ public class Orderer : Node
             gameObject.SetActive(false);
         }
     }
-
-    //private void OnCollisionEnter(Collision collision)
-    //{
-    //    if (collision.gameObject == this.shipper)
-    //    {
-    //        var shipper = collision.gameObject.GetComponent<Shipper>();
-    //        if (!shipper.isTakenFood)
-    //            return;
-    //        shipper.isTakenFood = false;
-    //        gameObject.SetActive(false);
-    //    }
-    //}
 
     private void OnEnable()
     {
