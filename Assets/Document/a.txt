@@ -3,3 +3,4 @@
 (V) orderer chua reset shipper
 (V) chay theo khac hang cu
 (V) ngung giao hang trong truong hop bom hang
+(V) shipper dung yen sau khi ngung giao hang

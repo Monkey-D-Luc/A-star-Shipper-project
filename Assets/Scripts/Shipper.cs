@@ -45,19 +45,13 @@ public class Shipper : MonoBehaviour
                 }
                 else
                 {
-                    Debug.Log("push thanh cong");
                     path.Push(orderPosition);
                 }
             }
         }
-        //if (path.Count == 0 && Vector3.Distance(transform.position, targetPoint.transform.position) <= 2)
-        //{
-        //    //targetPoint = new Node();
-        //    targetPoint = orderPosition;
-        //}
-        Vector3 direction = (targetPoint.transform.position - transform.position).normalized;
-        transform.LookAt(targetPoint.transform);
-        transform.position += direction * Time.deltaTime * speed;
+        if (path.Count == 0 && Vector3.Distance(transform.position, targetPoint.transform.position) <= 2)
+            return;
+        FollowTargetPoint();
     }
     public void FindAndFollowPath(Node startPoint, Node endPoint)
     {
@@ -68,9 +62,11 @@ public class Shipper : MonoBehaviour
         //FollowPath(path);
     }
 
-    private void FollowPath(Stack<Node> path)
+    private void FollowTargetPoint()
     {
-        var currentTarget = path.Pop();
+        Vector3 direction = (targetPoint.transform.position - transform.position).normalized;
+        transform.LookAt(targetPoint.transform);
+        transform.position += direction * Time.deltaTime * speed;
     }
 
     public void FindPath()
