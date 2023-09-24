@@ -19,7 +19,7 @@ public class Orderer : Node
     }
     private void Start()
     {
-        counter = 45;
+        counter = 30;
         shipper = null;
         //foodInfo = "Pizza";
     }
@@ -35,6 +35,7 @@ public class Orderer : Node
                 shipper.orderPosition = null;
                 shipper.path.Clear();
             }
+            GameManager.Instance.LoseMoney(this.foodType);
             gameObject.SetActive(false);
         }
         DisplayInfo();
@@ -61,6 +62,7 @@ public class Orderer : Node
             shipper.orderPosition = null;
             shipper.targetPoint = nearestNode;
             shipper.path.Clear();
+            GameManager.Instance.GainMoney(this.foodType);
             gameObject.SetActive(false);
         }
     }
@@ -68,7 +70,7 @@ public class Orderer : Node
     private void OnEnable()
     {
         foodType = (Food)Random.Range(0, 2);
-        counter = 45;
+        counter = 30;
         shipper = null;
         switch (foodType)
         {

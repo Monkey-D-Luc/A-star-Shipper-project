@@ -17,6 +17,7 @@ public class LinkManager : MonoBehaviour
     private void Awake()
     {
         nearestNodesList = new List<Tuple<Node, Node, int>>();
+        Astar.trafficLevelList.Clear();
         int ID = 0;
         foreach (var link in linksList)
         {
