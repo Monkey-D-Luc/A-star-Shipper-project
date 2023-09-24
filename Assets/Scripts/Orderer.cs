@@ -19,7 +19,7 @@ public class Orderer : Node
     }
     private void Start()
     {
-        counter = 60;
+        counter = 45;
         shipper = null;
         //foodInfo = "Pizza";
     }
@@ -68,7 +68,7 @@ public class Orderer : Node
     private void OnEnable()
     {
         foodType = (Food)Random.Range(0, 2);
-        counter = 60;
+        counter = 45;
         shipper = null;
         switch (foodType)
         {
