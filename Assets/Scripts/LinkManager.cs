@@ -22,15 +22,10 @@ public class LinkManager : MonoBehaviour
         {
             link.edgeID = ID;
             int trafficLevel = Random.Range(1, 5);
-            Astar.trafficLevel.Add(trafficLevel);
+            Astar.trafficLevelList.Add(trafficLevel);
             Link2Node(link.NodeA, link.NodeB, ID);
             BuildRoads(link.NodeA, link.NodeB, ID);
             ID++;
-        }
-
-        foreach (var a in Astar.trafficLevel)
-        {
-            Debug.Log(a);
         }
     }
 

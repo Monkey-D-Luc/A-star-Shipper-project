@@ -53,7 +53,7 @@ public class Shipper : MonoBehaviour
     {
         Vector3 direction = (targetPoint.transform.position - transform.position).normalized;
         transform.LookAt(targetPoint.transform);
-        speed = (5 - Astar.trafficLevel[trafficLevel]) * 8;
+        speed = (5 - Astar.trafficLevelList[trafficLevel]) * 8;
         transform.position += direction * Time.deltaTime * speed;
     }
 

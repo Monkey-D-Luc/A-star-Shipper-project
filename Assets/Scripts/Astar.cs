@@ -5,7 +5,7 @@ using UnityEngine.Assertions.Must;
 
 public static class Astar
 {
-    public static List<int> trafficLevel = new List<int>();
+    public static List<int> trafficLevelList = new List<int>();
 
     public static Stack<Node> FindPath(Node startPoint, Node endPoint)
     {
@@ -40,7 +40,7 @@ public static class Astar
                 }
                 link.targetNode.previousNode = currentNode;
                 //currentNode.edgeIDToNextNode = link.edgeID;
-                link.targetNode.g = currentNode.g + Vector3.Distance(currentNode.transform.position, link.targetNode.transform.position) * trafficLevel[link.edgeID];
+                link.targetNode.g = currentNode.g + Vector3.Distance(currentNode.transform.position, link.targetNode.transform.position) * trafficLevelList[link.edgeID];
                 link.targetNode.h = Vector3.Distance(link.targetNode.transform.position, endPoint.transform.position);
                 link.targetNode.f = link.targetNode.g + link.targetNode.h;
                 openList.Add(link.targetNode.f, link.targetNode);

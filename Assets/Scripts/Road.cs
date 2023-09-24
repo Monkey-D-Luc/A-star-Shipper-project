@@ -16,7 +16,7 @@ public class Road : MonoBehaviour
 
     private void Update()
     {
-        int trafficLevel = Astar.trafficLevel[edgeID];
+        int trafficLevel = Astar.trafficLevelList[edgeID];
         if (currentTrafficLevel == trafficLevel)
             return;
         switch (trafficLevel)
