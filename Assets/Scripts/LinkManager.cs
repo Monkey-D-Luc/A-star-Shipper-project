@@ -20,11 +20,17 @@ public class LinkManager : MonoBehaviour
         int ID = 0;
         foreach (var link in linksList)
         {
+            link.edgeID = ID;
             int trafficLevel = Random.Range(1, 5);
             Astar.trafficLevel.Add(trafficLevel);
             Link2Node(link.NodeA, link.NodeB, ID);
             BuildRoads(link.NodeA, link.NodeB, ID);
             ID++;
+        }
+
+        foreach (var a in Astar.trafficLevel)
+        {
+            Debug.Log(a);
         }
     }
 

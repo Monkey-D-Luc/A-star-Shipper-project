@@ -10,6 +10,7 @@ public class Shipper : MonoBehaviour
 {
     public Node[] nodesList;
     public Node targetPoint;
+    public Node previousPoint;
     public Stack<Node> path;
     public Stack<Node> secondPath;
     public LinkManager linkManager;
@@ -25,6 +26,7 @@ public class Shipper : MonoBehaviour
         path = new Stack<Node>();
         nodesList = FindObjectsOfType<Node>();
         targetPoint = null;
+        previousPoint = null;
         speed = 30;
         isTakenFood = false;
     }
@@ -51,17 +53,32 @@ public class Shipper : MonoBehaviour
     {
         Vector3 direction = (targetPoint.transform.position - transform.position).normalized;
         transform.LookAt(targetPoint.transform);
-        Debug.Log(Astar.trafficLevel[targetPoint.edgeID]);
-        transform.position += direction * Time.deltaTime * speed / Astar.trafficLevel[targetPoint.edgeID];
+        speed = (5 - Astar.trafficLevel[trafficLevel]) * 8;
+        transform.position += direction * Time.deltaTime * speed;
     }
 
     private void FindTargetPoint()
     {
         if (path.Count > 0 && Vector3.Distance(transform.position, targetPoint.transform.position) <= 2)
         {
+            previousPoint = targetPoint;
             targetPoint = path.Pop();
+            if (previousPoint != null)
+            {
+                foreach (var link in linkManager.linksList)
+                {
+                    if ((link.NodeA == previousPoint && link.NodeB == targetPoint)
+                        || (link.NodeB == previousPoint && link.NodeA == targetPoint))
+                    {
+                        trafficLevel = link.edgeID;
+                    }
+                }
+            }
             if (targetPoint == orderPosition)
+            {
+                trafficLevel = orderPosition.edgeID;
                 return;
+            }
             if (path.Count == 0)
             {
                 if (secondPath.Count > 0)
