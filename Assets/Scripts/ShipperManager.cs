@@ -39,13 +39,12 @@ public class ShipperManager : MonoBehaviour
             }
             if (hitData.collider.CompareTag("Orderer"))
             {
-                if (selectedShipper != null)
+                if (selectedShipper != null && hitData.transform.GetComponent<Orderer>().shipper == null)
                 {
                     selectedShipper.GetComponent<Renderer>().material = unselectedMaterial;
                     selectedOrderer = hitData.transform;
                     var shipper = selectedShipper.GetComponent<Shipper>();
                     var orderer = selectedOrderer.GetComponent<Orderer>();
-                    //Debug.Log(selectedShipper.position);
                     Node startNode = shipper.FindNearestNode(selectedShipper.position);
                     Node storeNode = null;
                     if (orderer.foodType == Food.Pizza)
@@ -58,14 +57,10 @@ public class ShipperManager : MonoBehaviour
                     }
                     if (storeNode == null)
                         return;
-                    //Debug.Log(startNode);
-                    //Debug.Log(storeNode);
-                    //Debug.Log(orderer.nearestNode);
                     orderer.shipper = shipper.gameObject;
                     shipper.FindPath(startNode, storeNode, orderer.nearestNode, orderer);
                     selectedOrderer = null;
                     selectedShipper = null;
-                    Debug.Log("Call");
                 }
             }
         }

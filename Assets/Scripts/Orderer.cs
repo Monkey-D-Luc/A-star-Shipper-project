@@ -41,7 +41,6 @@ public class Orderer : Node
         int timeRemain = (int)counter;
         //infoText.SetText(foodInfo);
         infoText.SetText(foodInfo + " - " + timeRemain.ToString());
-        Debug.Log(foodInfo);
     }
 
     private void OnTriggerEnter(Collider other)
