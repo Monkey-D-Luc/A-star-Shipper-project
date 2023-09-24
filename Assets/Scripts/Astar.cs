@@ -39,7 +39,6 @@ public static class Astar
                     continue;
                 }
                 link.targetNode.previousNode = currentNode;
-                //currentNode.edgeIDToNextNode = link.edgeID;
                 link.targetNode.g = currentNode.g + Vector3.Distance(currentNode.transform.position, link.targetNode.transform.position) * trafficLevelList[link.edgeID];
                 link.targetNode.h = Vector3.Distance(link.targetNode.transform.position, endPoint.transform.position);
                 link.targetNode.f = link.targetNode.g + link.targetNode.h;
