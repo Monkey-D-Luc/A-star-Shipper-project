@@ -15,7 +15,6 @@ public class Shipper : MonoBehaviour
     public Stack<Node> secondPath;
     public LinkManager linkManager;
     public float speed;
-    public int invoiceCode;
     public bool isTakenFood;
     public Node orderPosition;
 

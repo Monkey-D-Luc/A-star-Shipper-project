@@ -5,7 +5,6 @@ using UnityEngine;
 public class TrafficUpdater : MonoBehaviour
 {
     List<bool> isIncreases;
-    int counter;
 
     private void Awake()
     {
@@ -18,7 +17,6 @@ public class TrafficUpdater : MonoBehaviour
         {
             isIncreases.Add(false);
         }
-        counter = 0;
         StartCoroutine(UpdateTrafficLevel());
     }
 

@@ -12,7 +12,6 @@ public class Orderer : Node
     public string foodInfo;
     public Food foodType;
     public Node nearestNode;
-    public int invoiceCode;
 
     private void Awake()
     {
