@@ -39,7 +39,6 @@ public class Orderer : Node
             gameObject.SetActive(false);
         }
         int timeRemain = (int)counter;
-        //infoText.SetText(foodInfo);
         infoText.SetText(foodInfo + " - " + timeRemain.ToString());
     }
 

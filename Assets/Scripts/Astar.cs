@@ -5,7 +5,7 @@ using UnityEngine.Assertions.Must;
 
 public static class Astar
 {
-    public static List<int> trafficLevel = new List<int>() { 1 };
+    public static List<int> trafficLevel = new List<int>();
 
     public static Stack<Node> FindPath(Node startPoint, Node endPoint)
     {

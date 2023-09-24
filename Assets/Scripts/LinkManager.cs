@@ -3,6 +3,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UIElements;
+using Random = UnityEngine.Random;
 
 public class LinkManager : MonoBehaviour
 {
@@ -19,6 +20,8 @@ public class LinkManager : MonoBehaviour
         int ID = 0;
         foreach (var link in linksList)
         {
+            int trafficLevel = Random.Range(1, 5);
+            Astar.trafficLevel.Add(trafficLevel);
             Link2Node(link.NodeA, link.NodeB, ID);
             BuildRoads(link.NodeA, link.NodeB, ID);
             ID++;
@@ -38,6 +41,7 @@ public class LinkManager : MonoBehaviour
             float n = 1.0f / nRoad * i;
             Vector3 position = Vector3.Lerp(posA, posB, n);
             var roadInstance = Instantiate(road, position, Quaternion.identity);
+            roadInstance.GetComponent<Road>().edgeID = ID;
             roadInstance.transform.LookAt(nodeB.transform);
             roadPositionsList.Add(roadInstance.transform.position);
             nearestNodesList.Add(new Tuple<Node, Node, int>(nodeA, nodeB, ID));
