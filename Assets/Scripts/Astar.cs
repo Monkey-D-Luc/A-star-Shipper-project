@@ -17,6 +17,14 @@ public static class Astar
         while (openList.Count > 0)
         {
             currentNode = openList.Values[0];
+            if (currentNode.previousNode == null)
+            {
+                currentNode.edgeID = 1;
+            }
+            else
+            {
+                currentNode.edgeID = currentNode.previousNode.edgeIDToNextNode;
+            }
             openList.RemoveAt(0);
             closeList.Add(currentNode);
             if (currentNode == endPoint)
@@ -39,8 +47,8 @@ public static class Astar
                     continue;
                 }
                 link.targetNode.previousNode = currentNode;
-                currentNode.edgeID = trafficLevel[0];
-                link.targetNode.g = currentNode.g + Vector3.Distance(currentNode.transform.position, link.targetNode.transform.position) * trafficLevel[0];
+                currentNode.edgeIDToNextNode = link.edgeID;
+                link.targetNode.g = currentNode.g + Vector3.Distance(currentNode.transform.position, link.targetNode.transform.position) * trafficLevel[link.edgeID];
                 link.targetNode.h = Vector3.Distance(link.targetNode.transform.position, endPoint.transform.position);
                 link.targetNode.f = link.targetNode.g + link.targetNode.h;
                 openList.Add(link.targetNode.f, link.targetNode);

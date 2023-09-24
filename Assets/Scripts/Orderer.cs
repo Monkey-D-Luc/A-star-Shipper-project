@@ -6,21 +6,22 @@ using UnityEngine;
 public class Orderer : Node
 {
     private float counter;
-    private TextMeshProUGUI infoText;
+    public TextMeshProUGUI infoText;
+    public GameObject deliveringBar;
+    public GameObject shipper;
     public string foodInfo;
     public Food foodType;
     public Node nearestNode;
-    public GameObject shipper;
     public int egdeID;
     public int invoiceCode;
 
     private void Awake()
     {
-        infoText = GetComponentInChildren<TextMeshProUGUI>();
+        //infoText = GetComponentInChildren<TextMeshProUGUI>();
     }
     private void Start()
     {
-        counter = 20;
+        counter = 60;
         shipper = null;
         //foodInfo = "Pizza";
     }
@@ -45,6 +46,10 @@ public class Orderer : Node
     {
         int timeRemain = (int)counter;
         infoText.SetText(foodInfo + " - " + timeRemain.ToString());
+        if (shipper == null)
+            deliveringBar.SetActive(false);
+        else
+            deliveringBar.SetActive(true);
     }
 
     private void OnTriggerEnter(Collider other)
@@ -65,7 +70,7 @@ public class Orderer : Node
     private void OnEnable()
     {
         foodType = (Food)Random.Range(0, 2);
-        counter = 20;
+        counter = 60;
         shipper = null;
         switch (foodType)
         {

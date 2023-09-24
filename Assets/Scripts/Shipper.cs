@@ -18,6 +18,8 @@ public class Shipper : MonoBehaviour
     public bool isTakenFood;
     public Node orderPosition;
 
+    public int trafficLevel;
+
     private void Awake()
     {
         path = new Stack<Node>();
@@ -49,7 +51,8 @@ public class Shipper : MonoBehaviour
     {
         Vector3 direction = (targetPoint.transform.position - transform.position).normalized;
         transform.LookAt(targetPoint.transform);
-        transform.position += direction * Time.deltaTime * speed;
+        Debug.Log(Astar.trafficLevel[targetPoint.edgeID]);
+        transform.position += direction * Time.deltaTime * speed / Astar.trafficLevel[targetPoint.edgeID];
     }
 
     private void FindTargetPoint()

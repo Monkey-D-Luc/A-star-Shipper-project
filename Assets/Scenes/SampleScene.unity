@@ -158,6 +158,7 @@ MonoBehaviour:
   previousNode: {fileID: 0}
   neighbours: []
   edgeID: -1
+  edgeIDToNextNode: 0
   g: 0
   h: 0
   f: 0
@@ -599,6 +600,7 @@ MonoBehaviour:
   previousNode: {fileID: 0}
   neighbours: []
   edgeID: -1
+  edgeIDToNextNode: 0
   g: 0
   h: 0
   f: 0
@@ -879,6 +881,7 @@ MonoBehaviour:
   previousNode: {fileID: 0}
   neighbours: []
   edgeID: -1
+  edgeIDToNextNode: 0
   g: 0
   h: 0
   f: 0
@@ -1309,6 +1312,7 @@ MonoBehaviour:
   previousNode: {fileID: 0}
   neighbours: []
   edgeID: -1
+  edgeIDToNextNode: 0
   g: 0
   h: 0
   f: 0
@@ -1513,6 +1517,7 @@ MonoBehaviour:
   previousNode: {fileID: 0}
   neighbours: []
   edgeID: -1
+  edgeIDToNextNode: 0
   g: 0
   h: 0
   f: 0
@@ -1923,6 +1928,7 @@ MonoBehaviour:
   previousNode: {fileID: 0}
   neighbours: []
   edgeID: -1
+  edgeIDToNextNode: 0
   g: 0
   h: 0
   f: 0
@@ -2037,6 +2043,7 @@ MonoBehaviour:
   previousNode: {fileID: 0}
   neighbours: []
   edgeID: -1
+  edgeIDToNextNode: 0
   g: 0
   h: 0
   f: 0
@@ -2195,6 +2202,7 @@ MonoBehaviour:
   previousNode: {fileID: 0}
   neighbours: []
   edgeID: -1
+  edgeIDToNextNode: 0
   g: 0
   h: 0
   f: 0
@@ -2326,7 +2334,7 @@ MeshRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 2100000, guid: 445f59056fac73042b10675b4f433396, type: 2}
+  - {fileID: 2100000, guid: ffa5b0e9e99e9614caae8bb79e31a9a2, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -2587,6 +2595,7 @@ MonoBehaviour:
   previousNode: {fileID: 0}
   neighbours: []
   edgeID: -1
+  edgeIDToNextNode: 0
   g: 0
   h: 0
   f: 0
@@ -2701,6 +2710,7 @@ MonoBehaviour:
   previousNode: {fileID: 0}
   neighbours: []
   edgeID: -1
+  edgeIDToNextNode: 0
   g: 0
   h: 0
   f: 0
@@ -3028,6 +3038,7 @@ MonoBehaviour:
   previousNode: {fileID: 0}
   neighbours: []
   edgeID: -1
+  edgeIDToNextNode: 0
   g: 0
   h: 0
   f: 0
@@ -3051,7 +3062,7 @@ MeshRenderer:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1856204510}
-  m_Enabled: 0
+  m_Enabled: 1
   m_CastShadows: 1
   m_ReceiveShadows: 1
   m_DynamicOccludee: 1
@@ -3279,6 +3290,7 @@ MonoBehaviour:
   previousNode: {fileID: 0}
   neighbours: []
   edgeID: -1
+  edgeIDToNextNode: 0
   g: 0
   h: 0
   f: 0
@@ -3393,6 +3405,7 @@ MonoBehaviour:
   previousNode: {fileID: 0}
   neighbours: []
   edgeID: -1
+  edgeIDToNextNode: 0
   g: 0
   h: 0
   f: 0
