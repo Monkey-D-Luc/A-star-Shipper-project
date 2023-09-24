@@ -31,24 +31,25 @@ public class Shipper : MonoBehaviour
     {
         if (targetPoint == null)
             return;
-        if (path.Count > 0 && Vector3.Distance(transform.position, targetPoint.transform.position) <= 2)
-        {
-            targetPoint = path.Pop();
-            if (targetPoint == orderPosition)
-                return;
-            if (path.Count == 0)
-            {
-                if (secondPath.Count > 0)
-                {
-                    path = secondPath;
-                    isTakenFood = true;
-                }
-                else
-                {
-                    path.Push(orderPosition);
-                }
-            }
-        }
+        //if (path.Count > 0 && Vector3.Distance(transform.position, targetPoint.transform.position) <= 2)
+        //{
+        //    targetPoint = path.Pop();
+        //    if (targetPoint == orderPosition)
+        //        return;
+        //    if (path.Count == 0)
+        //    {
+        //        if (secondPath.Count > 0)
+        //        {
+        //            path = secondPath;
+        //            isTakenFood = true;
+        //        }
+        //        else
+        //        {
+        //            path.Push(orderPosition);
+        //        }
+        //    }
+        //}
+        FindTargetPoint();
         if (path.Count == 0 && Vector3.Distance(transform.position, targetPoint.transform.position) <= 2)
             return;
         FollowTargetPoint();
@@ -67,6 +68,30 @@ public class Shipper : MonoBehaviour
         Vector3 direction = (targetPoint.transform.position - transform.position).normalized;
         transform.LookAt(targetPoint.transform);
         transform.position += direction * Time.deltaTime * speed;
+    }
+
+    private void FindTargetPoint()
+    {
+        if (targetPoint == null)
+            return;
+        if (path.Count > 0 && Vector3.Distance(transform.position, targetPoint.transform.position) <= 2)
+        {
+            targetPoint = path.Pop();
+            if (targetPoint == orderPosition)
+                return;
+            if (path.Count == 0)
+            {
+                if (secondPath.Count > 0)
+                {
+                    path = secondPath;
+                    isTakenFood = true;
+                }
+                else
+                {
+                    path.Push(orderPosition);
+                }
+            }
+        }
     }
 
     public void FindPath()
