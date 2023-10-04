@@ -41,15 +41,14 @@ public static class Astar
             foreach (var link in currentNode.neighbours) //xet cac hang xom cua node hien tai (cac duong co the di tu node hien tai)
             {
                 /*
-                 * neu node hang xom da co trong openlist hoac closelist thi bo qua
+                 * neu node hang xom da co trong closelist thi bo qua
                  * link.targetNode = node hang xom dang xet
                  */
-                if (openList.ContainsValue(link.targetNode) || closeList.Contains(link.targetNode))
+                if (closeList.Contains(link.targetNode))
                 {
                     continue;
                 }
 
-                link.targetNode.previousNode = currentNode; // node truoc cua node hang xom chinh la node hien tai
 
                 /* 
                  * ham G = quang duong shipper phai di tu startPoint den node dang xet
@@ -58,6 +57,19 @@ public static class Astar
                 link.targetNode.g = currentNode.g + Vector3.Distance(currentNode.transform.position, link.targetNode.transform.position) * trafficLevelList[link.edgeID]; 
                 link.targetNode.h = Vector3.Distance(link.targetNode.transform.position, endPoint.transform.position); // do dai duong chim bay giua node dang xet va endPoint
                 link.targetNode.f = link.targetNode.g + link.targetNode.h; // ham F = G + H
+
+                //neu node hang xom da co trong openlist
+                if (openList.ContainsValue(link.targetNode))
+                {
+                    int index = openList.IndexOfValue(link.targetNode); //lay vi tri node hang xom trong openlist
+                    if (link.targetNode.f >= openList.Keys[index]) //neu gia tri f moi cua node hang xom >= gia tri f cu luu trong danh sach thi bo qua
+                    {
+                        continue;
+                    }
+                    openList.RemoveAt(index); // loai bo node hang xom voi gia tri f cu ra khoi danh sach de sau do them node voi gia tri f moi vao
+                }
+
+                link.targetNode.previousNode = currentNode; // node truoc cua node hang xom chinh la node hien tai
 
                 /*
                  * push node dang xet vao openlist, su dung gia tri ham F cua node do lam gia tri so sanh
