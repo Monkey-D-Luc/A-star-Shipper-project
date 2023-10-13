@@ -425,7 +425,7 @@ GameObject:
   - component: {fileID: 333817005}
   - component: {fileID: 333817004}
   m_Layer: 0
-  m_Name: PizzaStore
+  m_Name: BanhMiStore
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
