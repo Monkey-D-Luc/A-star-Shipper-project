@@ -11,15 +11,10 @@ public class Orderer : Node
     public Food foodType;
     public Node nearestNode;
 
-    private void Awake()
-    {
-        //infoText = GetComponentInChildren<TextMeshProUGUI>();
-    }
     private void Start()
     {
         counter = 30;
         shipper = null;
-        //foodInfo = "Pizza";
     }
     private void Update()
     {

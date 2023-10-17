@@ -13,7 +13,7 @@ public class Shipper : MonoBehaviour
     public bool isTakenFood;
     public Node orderPosition;
 
-    public int trafficLevel;
+    public int edgeID;
 
     private void Awake()
     {
@@ -34,20 +34,12 @@ public class Shipper : MonoBehaviour
             return;
         FollowTargetPoint();
     }
-    public void FindAndFollowPath(Node startPoint, Node endPoint)
-    {
-        var startNode = FindNearestNode(startPoint.transform.position);
-        var endNode = FindNearestNode(endPoint.transform.position);
-        path = Astar.FindPath(startNode, endNode);
-
-        //FollowPath(path);
-    }
 
     private void FollowTargetPoint()
     {
         Vector3 direction = (targetPoint.transform.position - transform.position).normalized;
         transform.LookAt(targetPoint.transform);
-        speed = (5 - Astar.trafficLevelList[trafficLevel]) * 8;
+        speed = (5 - Astar.trafficLevelList[edgeID]) * 8;
         transform.position += direction * Time.deltaTime * speed;
     }
 
@@ -59,18 +51,18 @@ public class Shipper : MonoBehaviour
             targetPoint = path.Pop();
             if (previousPoint != null)
             {
-                foreach (var link in linkManager.linksList)
+                foreach (var edge in linkManager.linksList)
                 {
-                    if ((link.NodeA == previousPoint && link.NodeB == targetPoint)
-                        || (link.NodeB == previousPoint && link.NodeA == targetPoint))
+                    if ((edge.NodeA == previousPoint && edge.NodeB == targetPoint)
+                        || (edge.NodeB == previousPoint && edge.NodeA == targetPoint))
                     {
-                        trafficLevel = link.edgeID;
+                        edgeID = edge.edgeID;
                     }
                 }
             }
             if (targetPoint == orderPosition)
             {
-                trafficLevel = orderPosition.edgeID;
+                edgeID = orderPosition.edgeID;
                 return;
             }
             if (path.Count == 0)
@@ -88,13 +80,7 @@ public class Shipper : MonoBehaviour
         }
     }
 
-    public void FindPath()
-    {
-        path = Astar.FindPath(linkManager.startPoint, linkManager.endPoint);
-        targetPoint = path.Pop();
-    }
-
-    public void FindPath(Node startNode, Node storeNode , Node endNode, Node orderPosition)
+    public void FindPath(Node startNode, Node storeNode, Node endNode, Node orderPosition)
     {
         path = Astar.FindPath(startNode, storeNode);
         targetPoint = path.Pop();

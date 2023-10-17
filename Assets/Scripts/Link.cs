@@ -1,5 +1,4 @@
-﻿[System.Serializable]
-public class Link
+﻿public class Link
 {
     public Node beginNode;
     public Node targetNode;
