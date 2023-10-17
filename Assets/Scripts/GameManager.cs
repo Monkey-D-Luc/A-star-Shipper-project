@@ -4,7 +4,7 @@ using UnityEngine;
 public class GameManager : MonoBehaviour
 {
     public static GameManager Instance;
-    [SerializeField] private PlayeSceneUIHandler playeSceneUIHandler;
+    [SerializeField] private PlaySceneUIHandler playeSceneUIHandler;
     [SerializeField] private TextMeshProUGUI moneyText;
     [SerializeField] private TextMeshProUGUI goalText;
     private int goal;

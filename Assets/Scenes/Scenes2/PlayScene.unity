@@ -2873,7 +2873,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1127688630}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: -152.8, y: 1.6675949, z: -44}
+  m_LocalPosition: {x: -149.2, y: 1.6675949, z: -43.5}
   m_LocalScale: {x: 5, y: 5, z: 5}
   m_Children: []
   m_Father: {fileID: 1108616160}
@@ -5052,9 +5052,6 @@ MonoBehaviour:
     NodeB: {fileID: 1265996108}
     edgeID: 0
   - NodeA: {fileID: 1463294319}
-    NodeB: {fileID: 1265996108}
-    edgeID: 0
-  - NodeA: {fileID: 1463294319}
     NodeB: {fileID: 2116088447}
     edgeID: 0
   - NodeA: {fileID: 1405332541}
@@ -5068,12 +5065,6 @@ MonoBehaviour:
     edgeID: 0
   - NodeA: {fileID: 858562528}
     NodeB: {fileID: 385984920}
-    edgeID: 0
-  - NodeA: {fileID: 858562528}
-    NodeB: {fileID: 385984920}
-    edgeID: 0
-  - NodeA: {fileID: 178869181}
-    NodeB: {fileID: 828324478}
     edgeID: 0
   - NodeA: {fileID: 178869181}
     NodeB: {fileID: 828324478}
@@ -5108,22 +5099,10 @@ MonoBehaviour:
   - NodeA: {fileID: 2049033898}
     NodeB: {fileID: 305047887}
     edgeID: 0
-  - NodeA: {fileID: 2049033898}
-    NodeB: {fileID: 305047887}
-    edgeID: 0
-  - NodeA: {fileID: 2049033898}
-    NodeB: {fileID: 305047887}
-    edgeID: 0
-  - NodeA: {fileID: 385984920}
-    NodeB: {fileID: 305047887}
-    edgeID: 0
   - NodeA: {fileID: 305047887}
     NodeB: {fileID: 1389079202}
     edgeID: 0
   - NodeA: {fileID: 1389079202}
-    NodeB: {fileID: 1127688635}
-    edgeID: 0
-  - NodeA: {fileID: 1413710669}
     NodeB: {fileID: 1127688635}
     edgeID: 0
   - NodeA: {fileID: 1127688635}
@@ -5147,20 +5126,8 @@ MonoBehaviour:
   - NodeA: {fileID: 146288384}
     NodeB: {fileID: 608734410}
     edgeID: 0
-  - NodeA: {fileID: 608734410}
-    NodeB: {fileID: 1308351663}
-    edgeID: 0
   - NodeA: {fileID: 1574639255}
     NodeB: {fileID: 178869181}
-    edgeID: 0
-  - NodeA: {fileID: 1574639255}
-    NodeB: {fileID: 753485955}
-    edgeID: 0
-  - NodeA: {fileID: 1574639255}
-    NodeB: {fileID: 1783480365}
-    edgeID: 0
-  - NodeA: {fileID: 608734410}
-    NodeB: {fileID: 1702466622}
     edgeID: 0
   - NodeA: {fileID: 608734410}
     NodeB: {fileID: 1308351663}
@@ -5173,9 +5140,6 @@ MonoBehaviour:
     edgeID: 0
   - NodeA: {fileID: 1732994296}
     NodeB: {fileID: 1702466622}
-    edgeID: 0
-  - NodeA: {fileID: 1127688635}
-    NodeB: {fileID: 858562528}
     edgeID: 0
   - NodeA: {fileID: 1702466622}
     NodeB: {fileID: 270863560}
@@ -5191,9 +5155,6 @@ MonoBehaviour:
     edgeID: 0
   - NodeA: {fileID: 270863560}
     NodeB: {fileID: 1384228699}
-    edgeID: 0
-  - NodeA: {fileID: 385984920}
-    NodeB: {fileID: 1574639255}
     edgeID: 0
   - NodeA: {fileID: 385984920}
     NodeB: {fileID: 1574639255}
@@ -5224,18 +5185,6 @@ MonoBehaviour:
     edgeID: 0
   - NodeA: {fileID: 1241511913}
     NodeB: {fileID: 1778790988}
-    edgeID: 0
-  - NodeA: {fileID: 2116915218}
-    NodeB: {fileID: 1175900812}
-    edgeID: 0
-  - NodeA: {fileID: 2116915218}
-    NodeB: {fileID: 1175900812}
-    edgeID: 0
-  - NodeA: {fileID: 1732994296}
-    NodeB: {fileID: 2036313881}
-    edgeID: 0
-  - NodeA: {fileID: 2036313881}
-    NodeB: {fileID: 489763039}
     edgeID: 0
   - NodeA: {fileID: 489763039}
     NodeB: {fileID: 2036313881}
